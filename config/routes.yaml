@@ -1,0 +1,14 @@
+calculate_score:
+  path: /calculate-score
+  methods: [GET]
+  defaults: { _controller: App\Infrastructure\Api\CalculateScoreController }
+
+public_listing:
+  path: /public-listing
+  methods: [GET]
+  defaults: { _controller: App\Infrastructure\Api\PublicListingController }
+
+quality_listing:
+  path: /quality-listing
+  methods: [GET]
+  defaults: { _controller: App\Infrastructure\Api\QualityListingController }

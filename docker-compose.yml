@@ -1,0 +1,28 @@
+services:
+    php:
+        build:
+            context: .
+            dockerfile: docker/php/Dockerfile
+            args:
+                TIMEZONE: ${TIMEZONE}
+        container_name: idealista_php
+        volumes:
+            - .:/var/www/idealista-back/
+        networks:
+            - symfony
+    nginx:
+        build:
+            context: .
+            dockerfile: docker/nginx/Dockerfile
+        container_name: idealista_nginx
+        volumes:
+            - .:/var/www/idealista-back/
+        ports:
+            - 80:80
+        networks:
+            - symfony
+
+
+
+networks:
+    symfony:
