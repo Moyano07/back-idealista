@@ -7,7 +7,7 @@ namespace App\Aplication\CalculateScore;
 
 use App\Aplication\CalculateScore\Services\CalculateScoreConverter;
 use App\Aplication\CalculateScore\Services\CalculateScoreSearcher;
-use App\Aplication\CalculateScore\Services\GenerateCalculateScore;
+use App\Aplication\Shared\GenerateCalculateScore;
 
 class CalculateScoreUseCase
 {
