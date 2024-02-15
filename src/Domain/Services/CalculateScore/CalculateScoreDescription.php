@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Domain\Services\CalculateScore;
 
 
-use App\Domain\Shared\AdvertisementDescriptionWordsClave;
+use App\Domain\Shared\AdvertisementDescriptionWordsClaveEnum;
 use App\Domain\Shared\AdvertisementTypologyTypeEnum;
 
 class CalculateScoreDescription
@@ -57,7 +57,7 @@ class CalculateScoreDescription
     private function searchWordClave(string $value): int
     {
         $score = 0;
-        foreach (AdvertisementDescriptionWordsClave::getWordsClave() as $wordClave) {
+        foreach (AdvertisementDescriptionWordsClaveEnum::getWordsClave() as $wordClave) {
             if (str_contains($value, $wordClave)) {
                 $score = $score + self::FIND_WORD_CLAVE;
             }

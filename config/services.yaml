@@ -33,3 +33,7 @@ services:
 
     App\Infrastructure\Api\PublicListingController:
         public: true
+
+    App\Infrastructure\Api\QualityListingController:
+        public: true
+

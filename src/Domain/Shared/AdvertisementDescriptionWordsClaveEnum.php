@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Domain\Shared;
 
-class AdvertisementDescriptionWordsClave
+class AdvertisementDescriptionWordsClaveEnum
 {
 
     public const BRIGHT = 'Luminoso';
