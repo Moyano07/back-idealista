@@ -31,3 +31,5 @@ services:
     App\Infrastructure\Api\CalculateScoreController:
         public: true
 
+    App\Infrastructure\Api\PublicListingController:
+        public: true

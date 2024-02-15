@@ -17,6 +17,7 @@ final class CalculateScoreController
     public function __invoke(): JsonResponse
     {
         $data = ($this->calculateScoreUseCase)();
+
         return new JsonResponse($data);
     }
 }

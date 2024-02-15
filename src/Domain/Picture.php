@@ -7,9 +7,9 @@ namespace App\Domain;
 final class Picture
 {
     public function __construct(
-        public int $id,
-        public String $url,
-        public String $quality,
+        private int $id,
+        private String $url,
+        private String $quality,
     ) {
     }
 
@@ -27,6 +27,14 @@ final class Picture
     public function getQuality(): string
     {
         return $this->quality;
+    }
+
+    /**
+     * @return String
+     */
+    public function getUrl(): string
+    {
+        return $this->url;
     }
 
 
