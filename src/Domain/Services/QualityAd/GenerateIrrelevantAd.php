@@ -10,7 +10,7 @@ class GenerateIrrelevantAd
 {
     const MIN_SCORE_FOR_IRRELEVANT = 40;
 
-    public function execute($data)
+    public function execute(array $data): array
     {
         /** @var Ad $ad */
         foreach ($data as $ad) {

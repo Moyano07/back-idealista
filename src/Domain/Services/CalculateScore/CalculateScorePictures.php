@@ -14,7 +14,7 @@ class CalculateScorePictures
     const HD = 20;
     const SD = 10;
 
-    public function calculateScore(array $pictures)
+    public function calculateScore(array $pictures): int
     {
         $score = 0;
         if (empty($pictures)) {
