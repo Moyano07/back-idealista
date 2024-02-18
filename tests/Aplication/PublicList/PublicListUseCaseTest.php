@@ -2,26 +2,28 @@
 
 declare(strict_types=1);
 
-use App\Aplication\CalculateScore\CalculateScoreUseCase;
-use App\Aplication\CalculateScore\Services\CalculateScoreConverter;
-use App\Aplication\CalculateScore\Services\CalculateScoreSearcher;
+use App\Aplication\PublicList\PublicListUseCase;
+use App\Aplication\PublicList\Services\PublicListConverter;
+use App\Aplication\PublicList\Services\PublicListFilter;
+use App\Aplication\PublicList\Services\PublicListSearcher;
 use App\Aplication\Shared\GenerateCalculateScore;
 use App\Domain\Repository\AdvertisementRepositoryInterface;
 use App\Domain\Services\CalculateScore\CalculateScoreAdvertisement;
 use App\Domain\Services\CalculateScore\CalculateScoreDescription;
 use App\Domain\Services\CalculateScore\CalculateScorePictures;
 use App\Domain\Services\CalculateScore\CalculateScoreTypology;
-use App\Infrastructure\Api\CalculateScoreAd;
+use App\Domain\Services\PublicList\PublicListAdvertisementFilter;
 use App\Tests\Utils\AdvertisementFixtures;
 use App\Tests\Utils\CalculateScoreFixtures;
+use App\Tests\Utils\PublicListFixtures;
 use JetBrains\PhpStorm\NoReturn;
 use Mockery\MockInterface;
 use PHPUnit\Framework\TestCase;
 
-class CalculateScoreUseCaseTest extends TestCase
+class PublicListUseCaseTest extends TestCase
 {
 
-    private AdvertisementRepositoryInterface | MockInterface $repository;
+    private AdvertisementRepositoryInterface|MockInterface $repository;
 
 
     public function setUp(): void
@@ -32,8 +34,7 @@ class CalculateScoreUseCaseTest extends TestCase
     /** @test */
     public function it_should_return_empty_ad(): void
     {
-        $useCase = $this->createCalculateScoreUseCase();
-
+        $useCase = $this->createPublicListUseCase();
         $response = ($useCase)();
 
         self::assertIsArray($response);
@@ -44,34 +45,31 @@ class CalculateScoreUseCaseTest extends TestCase
     /** @test */
     #[NoReturn] public function it_should_return_ads(): void
     {
-        $countAds = 5;
+        $countAds = 6;
         $adsFixtures = AdvertisementFixtures::createAdvertisementsByNumberToCalculateScore($countAds);
-        $useCase = $this->createCalculateScoreUseCase($adsFixtures);
-        $propertiesValues = CalculateScoreFixtures::getAllProperties();
+        $useCase = $this->createPublicListUseCase($adsFixtures);
+        $propertiesValues = PublicListFixtures::getAllProperties();
 
         $response = ($useCase)();
-
         self::assertIsArray($response);
-        self::assertNotEmpty($response);
-        self::assertCount($countAds, $response);
         foreach ($response as $ad) {
             foreach ($propertiesValues as $value) {
                 self::assertTrue(\in_array($value, array_keys($ad)));
             }
         }
-
     }
 
-    private function createCalculateScoreUseCase(array $ads = []): CalculateScoreUseCase
+    private function createPublicListUseCase(array $ads = []): PublicListUseCase
     {
-
         $repository = $this->shouldAds($ads);
-        $calculateScoreSearcher = new CalculateScoreSearcher($repository);
-        $calculateScoreConverter = new CalculateScoreConverter();
+        $searcher = new PublicListSearcher($repository);
         $calculateScoreAdvertisement = $this->createCalculateScoreAdvertisement();
         $generateCalculateScore = new GenerateCalculateScore($calculateScoreAdvertisement);
+        $publicListFilter = $this->createPublicListFilter();
+        $converter = new PublicListConverter();
 
-        return new CalculateScoreUseCase($calculateScoreSearcher,$calculateScoreConverter,$generateCalculateScore);
+        return new PublicListUseCase($searcher, $generateCalculateScore, $publicListFilter, $converter);
+
     }
 
     private function shouldAds(array $ads)
@@ -89,6 +87,13 @@ class CalculateScoreUseCaseTest extends TestCase
         $calculateScoreDescription = new CalculateScoreDescription();
         $calculateScoreTypology = new CalculateScoreTypology();
         $calculateScorePictures = new CalculateScorePictures();
-        return new CalculateScoreAdvertisement($calculateScoreDescription,$calculateScoreTypology,$calculateScorePictures);
+        return new CalculateScoreAdvertisement($calculateScoreDescription, $calculateScoreTypology, $calculateScorePictures);
+    }
+
+    private function createPublicListFilter(): PublicListFilter
+    {
+        $publicListAdvertisementFilter = new PublicListAdvertisementFilter();
+
+        return new PublicListFilter($publicListAdvertisementFilter);
     }
 }

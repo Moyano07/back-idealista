@@ -26,11 +26,11 @@ final class InFileSystemPersistence implements AdvertisementRepositoryInterface
 
         array_push($this->pictures, new Picture(1, 'https://estudibasic.es/wp-content/uploads/2016/09/estudibasic-renders-de-interiores-3d-para-venta-inmobiliaria-1.jpg', 'SD'));
         array_push($this->pictures, new Picture(2, 'https://estudibasic.es/wp-content/uploads/2016/09/estudibasic-renders-de-interiores-3d-para-venta-inmobiliaria-1.jpg', 'HD'));
-        array_push($this->pictures, new Picture(3, 'https://estudibasic.es/wp-content/uploads/2016/09/estudibasic-renders-de-interiores-3d-para-venta-inmobiliaria-1.jpg', 'SD'));
+        array_push($this->pictures, new Picture(3, 'https://www.domingoloro.com/images/portfolio_4/piso_barcelona/render-3D-piso-barcelona-domingo-loro.jpg', 'SD'));
         array_push($this->pictures, new Picture(4, 'https://estudibasic.es/wp-content/uploads/2016/09/estudibasic-renders-de-interiores-3d-para-venta-inmobiliaria-1.jpg', 'HD'));
         array_push($this->pictures, new Picture(5, 'https://estudibasic.es/wp-content/uploads/2016/09/estudibasic-renders-de-interiores-3d-para-venta-inmobiliaria-1.jpg', 'SD'));
         array_push($this->pictures, new Picture(6, 'https://estudibasic.es/wp-content/uploads/2016/09/estudibasic-renders-de-interiores-3d-para-venta-inmobiliaria-1.jpg', 'SD'));
-        array_push($this->pictures, new Picture(7, 'https://estudibasic.es/wp-content/uploads/2016/09/estudibasic-renders-de-interiores-3d-para-venta-inmobiliaria-1.jpg', 'SD'));
+        array_push($this->pictures, new Picture(7, 'https://www.domingoloro.com/images/portfolio_4/piso_barcelona/render-3D-piso-barcelona-domingo-loro.jpg', 'SD'));
         array_push($this->pictures, new Picture(8, 'https://estudibasic.es/wp-content/uploads/2016/09/estudibasic-renders-de-interiores-3d-para-venta-inmobiliaria-1.jpg', 'HD'));
     }
 
