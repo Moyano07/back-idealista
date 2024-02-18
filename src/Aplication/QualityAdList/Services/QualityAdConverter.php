@@ -11,7 +11,7 @@ use App\Infrastructure\Api\QualityAd;
 class QualityAdConverter
 {
 
-    public function convert($data): array
+    public function convert(array $data): array
     {
         $qualities = [];
         /** @var Ad $advertisement */

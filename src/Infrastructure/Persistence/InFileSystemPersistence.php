@@ -24,14 +24,14 @@ final class InFileSystemPersistence implements AdvertisementRepositoryInterface
         array_push($this->ads, new Ad(7, 'GARAGE', 'Garaje en el centro de Albacete', [], 300, null, null, null));
         array_push($this->ads, new Ad(8, 'CHALET', 'Maravilloso chalet situado en lAs afueras de un pequeño pueblo rural. El entorno es espectacular, las vistas magníficas. ¡Cómprelo ahora!', [1, 7], 300, null, null, null));
 
-        array_push($this->pictures, new Picture(1, 'https://www.idealista.com/pictures/1', 'SD'));
-        array_push($this->pictures, new Picture(2, 'https://www.idealista.com/pictures/2', 'HD'));
-        array_push($this->pictures, new Picture(3, 'https://www.idealista.com/pictures/3', 'SD'));
-        array_push($this->pictures, new Picture(4, 'https://www.idealista.com/pictures/4', 'HD'));
-        array_push($this->pictures, new Picture(5, 'https://www.idealista.com/pictures/5', 'SD'));
-        array_push($this->pictures, new Picture(6, 'https://www.idealista.com/pictures/6', 'SD'));
-        array_push($this->pictures, new Picture(7, 'https://www.idealista.com/pictures/7', 'SD'));
-        array_push($this->pictures, new Picture(8, 'https://www.idealista.com/pictures/8', 'HD'));
+        array_push($this->pictures, new Picture(1, 'https://estudibasic.es/wp-content/uploads/2016/09/estudibasic-renders-de-interiores-3d-para-venta-inmobiliaria-1.jpg', 'SD'));
+        array_push($this->pictures, new Picture(2, 'https://estudibasic.es/wp-content/uploads/2016/09/estudibasic-renders-de-interiores-3d-para-venta-inmobiliaria-1.jpg', 'HD'));
+        array_push($this->pictures, new Picture(3, 'https://www.domingoloro.com/images/portfolio_4/piso_barcelona/render-3D-piso-barcelona-domingo-loro.jpg', 'SD'));
+        array_push($this->pictures, new Picture(4, 'https://estudibasic.es/wp-content/uploads/2016/09/estudibasic-renders-de-interiores-3d-para-venta-inmobiliaria-1.jpg', 'HD'));
+        array_push($this->pictures, new Picture(5, 'https://estudibasic.es/wp-content/uploads/2016/09/estudibasic-renders-de-interiores-3d-para-venta-inmobiliaria-1.jpg', 'SD'));
+        array_push($this->pictures, new Picture(6, 'https://estudibasic.es/wp-content/uploads/2016/09/estudibasic-renders-de-interiores-3d-para-venta-inmobiliaria-1.jpg', 'SD'));
+        array_push($this->pictures, new Picture(7, 'https://www.domingoloro.com/images/portfolio_4/piso_barcelona/render-3D-piso-barcelona-domingo-loro.jpg', 'SD'));
+        array_push($this->pictures, new Picture(8, 'https://estudibasic.es/wp-content/uploads/2016/09/estudibasic-renders-de-interiores-3d-para-venta-inmobiliaria-1.jpg', 'HD'));
     }
 
     public function findAllAds(): array
