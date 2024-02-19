@@ -4,18 +4,19 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Api;
 
-final class PublicAd implements \JsonSerializable
+final class CalculateScoreAd implements \JsonSerializable
 {
+
     public function __construct(
         private int $id,
         private String $typology,
         private String $description,
-        private array $pictureUrls,
+        private array $pictures,
         private int $houseSize,
         private ?int $gardenSize = null,
+        private ?int $score = null
     ) {
     }
-
 
     public function jsonSerialize(): array
     {
@@ -23,9 +24,10 @@ final class PublicAd implements \JsonSerializable
             'id' =>$this->id,
             'typology' => $this->typology,
             'description' => $this->description,
-            'pictureUrls' => $this->pictureUrls,
+            'pictures' => $this->pictures,
             'houseSize' => $this->houseSize,
             'gardenSize' => $this->gardenSize,
+            'score' => $this->score
         ];
     }
 }

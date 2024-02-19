@@ -3,6 +3,7 @@ calculate_score:
   methods: [GET]
   defaults: { _controller: App\Infrastructure\Api\CalculateScoreController }
 
+
 public_listing:
   path: /public-listing
   methods: [GET]

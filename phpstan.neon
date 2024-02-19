@@ -1,0 +1,13 @@
+parameters:
+    level: 7
+    paths:
+        - src
+        - tests
+    checkMissingIterableValueType: false
+    checkGenericClassInNonGenericObjectType: false
+    excludePaths:
+        - %rootDir%/../../../src/migrations
+    ignoreErrors:
+        #- '#Class [a-zA-Z0-9\\_\$:]+ has an uninitialized readonly property \$[a-zA-Z]+. Assign it in the constructor.#'
+        #- '#Using nullsafe property access on non-nullable type [a-zA-Z0-9\\_\$:]+. Use -> instead.#'
+        #- '#Property [a-zA-Z0-9\\_\$:]+ is never read, only written#'
